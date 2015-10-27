@@ -1,6 +1,6 @@
 import sys
 sys.path.append("/opt/tornado")
-from plugins import (switch_on_led,temperature_value)
+from plugins import (switch_on_led,temperature_value,screen_control)
 
 def f_switch_on_led(port,state):
 	l1 = switch_on_led.SwitchOnLed(port,state)
@@ -9,3 +9,8 @@ def f_switch_on_led(port,state):
 def f_temperature_value(port):
 	t1 = temperature_value.TemperatureValue(port)
 	return t1.getTemp()
+
+def f_screen_control(r_color,g_color,b_color,x_cur,y_cur,message):
+	s1 = screen_control.ScreenControl(r_color,g_color,b_color,x_cur,y_cur,message)
+	return s1.setScreen()
+
