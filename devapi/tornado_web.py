@@ -8,14 +8,18 @@ import fplugins
 
 
 class SwitchOnLed(web.RequestHandler):
-    def post(self):
-        a = self.get_argument("port", default = 0)
-        b = self.get_argument("state", default = 0)
-        self.write(fplugins.f_switch_on_led(a, b))
+	def post(self):
+        	a = self.get_argument("port", default = 0)
+        	b = self.get_argument("state", default = 0)
+        	self.write(fplugins.f_switch_on_led(a, b))
 
 class TemperatureValue(web.RequestHandler):
-    def get(self, param):
-        self.write(fplugins.f_temperature_value(param))
+	def get(self, param):
+        	self.write(fplugins.f_temperature_value(param))
+
+class ButtonStatus(web.RequestHandler):
+	def get(self, param):
+		self.write(fplugins.f_button_status(param))
 
 class ScreenControl(web.RequestHandler):
 	def post(self):
@@ -40,7 +44,8 @@ application = web.Application([
     
     (r'/api/switchled', SwitchOnLed),
     (r'/api/screen', ScreenControl),
-    (r'/api/temperature/(.*)', TemperatureValue)
+    (r'/api/temperature/(.*)', TemperatureValue),
+    (r'/api/button/(.*)', ButtonStatus)
 
 ],**settings)
  
