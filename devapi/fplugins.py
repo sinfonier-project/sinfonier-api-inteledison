@@ -1,7 +1,7 @@
 import sys
 
 sys.path.append("/opt/tornado")
-from plugins import (switch_on_led,temperature_value,screen_control,button_status,light_value,switch_buzzer,sound_value)
+from plugins import (switch_on_led,temperature_value,screen_control,button_status,light_value,switch_buzzer,sound_value,touch_status)
 
 def f_switch_on_led(port,state):
 	l1 = switch_on_led.SwitchOnLed(port,state)
@@ -30,3 +30,8 @@ def f_switch_buzzer(port,state,duration):
 def f_sound_value(port):
 	m1 = sound_value.SoundValue(port)
         return m1.getSound()
+
+def f_touch_status(port):
+        t1 = touch_status.TouchSensor(port)
+        return t1.getTouchStatus()
+

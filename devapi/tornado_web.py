@@ -46,6 +46,11 @@ class SoundValue(web.RequestHandler):
         def get(self, param):
                 self.write(fplugins.f_sound_value(param))
 
+class TouchStatus(web.RequestHandler):
+        def get(self, param):
+                self.write(fplugins.f_touch_status(param))
+
+
 settings = {
     "template_path": os.path.join(os.path.dirname(__file__), 
 "templates"),
@@ -62,7 +67,8 @@ application = web.Application([
     (r'/api/button/(.*)', ButtonStatus),
     (r'/api/light/(.*)', LightValue),
     (r'/api/switchbuzzer', SwitchBuzzer),
-    (r'/api/sound/(.*)', SoundValue)
+    (r'/api/sound/(.*)', SoundValue),
+    (r'/api/touchsensor/(.*)',TouchStatus)
 
 ],**settings)
  
