@@ -1,7 +1,7 @@
 import sys
 
 sys.path.append("/opt/tornado")
-from plugins import (switch_on_led,temperature_value,screen_control,button_status)
+from plugins import (switch_on_led,temperature_value,screen_control,button_status,light_value)
 
 def f_switch_on_led(port,state):
 	l1 = switch_on_led.SwitchOnLed(port,state)
@@ -19,3 +19,6 @@ def f_button_status(port):
 	b1 = button_status.Button(port)
 	return b1.getButtonStatus()
 
+def f_light_value(port):
+	l1 = light_value.LightValue(port)
+	return l1.getLight()

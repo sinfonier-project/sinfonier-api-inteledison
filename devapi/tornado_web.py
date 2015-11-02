@@ -29,8 +29,12 @@ class ScreenControl(web.RequestHandler):
 		x = self.get_argument("x_cor",default = 0)
 		y = self.get_argument("y_cor",default = 0)
 		message = self.get_argument("message",default="default")
-
 		self.write(fplugins.f_screen_control(r, g, b, x, y, message))
+
+class LightValue(web.RequestHandler):
+        def get(self, param):
+                self.write(fplugins.f_light_value(param))
+
 
 settings = {
     "template_path": os.path.join(os.path.dirname(__file__), 
@@ -45,7 +49,8 @@ application = web.Application([
     (r'/api/switchled', SwitchOnLed),
     (r'/api/screen', ScreenControl),
     (r'/api/temperature/(.*)', TemperatureValue),
-    (r'/api/button/(.*)', ButtonStatus)
+    (r'/api/button/(.*)', ButtonStatus),
+    (r'/api/light/(.*)', LightValue)
 
 ],**settings)
  
