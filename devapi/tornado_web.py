@@ -35,6 +35,13 @@ class LightValue(web.RequestHandler):
         def get(self, param):
                 self.write(fplugins.f_light_value(param))
 
+class SwitchBuzzer(web.RequestHandler):
+        def post(self):
+                a = self.get_argument("port", default = 0)
+                b = self.get_argument("state", default = 0)
+		c = self.get_argument("duration", default = 2)
+                self.write(fplugins.f_switch_buzzer_led(a, b, c))
+
 
 settings = {
     "template_path": os.path.join(os.path.dirname(__file__), 
@@ -50,7 +57,8 @@ application = web.Application([
     (r'/api/screen', ScreenControl),
     (r'/api/temperature/(.*)', TemperatureValue),
     (r'/api/button/(.*)', ButtonStatus),
-    (r'/api/light/(.*)', LightValue)
+    (r'/api/light/(.*)', LightValue),
+    (r'/api/switchbuzzer', SwitchBuzzer)
 
 ],**settings)
  
