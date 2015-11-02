@@ -42,6 +42,9 @@ class SwitchBuzzer(web.RequestHandler):
 		c = self.get_argument("duration", default = 2)
                 self.write(fplugins.f_switch_buzzer_led(a, b, c))
 
+class SoundValue(web.RequestHandler):
+        def get(self, param):
+                self.write(fplugins.f_sound_value(param))
 
 settings = {
     "template_path": os.path.join(os.path.dirname(__file__), 
@@ -58,7 +61,8 @@ application = web.Application([
     (r'/api/temperature/(.*)', TemperatureValue),
     (r'/api/button/(.*)', ButtonStatus),
     (r'/api/light/(.*)', LightValue),
-    (r'/api/switchbuzzer', SwitchBuzzer)
+    (r'/api/switchbuzzer', SwitchBuzzer),
+    (r'/api/sound/(.*)', SoundValue)
 
 ],**settings)
  
