@@ -1,7 +1,7 @@
 import sys
 
 sys.path.append("/opt/tornado")
-from plugins import (switch_on_led,temperature_value,screen_control,button_status,light_value,switch_buzzer,sound_value,touch_status)
+from plugins import (switch_on_led,temperature_value,screen_control,button_status,light_value,switch_buzzer,sound_value,touch_status,rotary_angle_value)
 
 def f_switch_on_led(port,state):
 	l1 = switch_on_led.SwitchOnLed(port,state)
@@ -35,3 +35,6 @@ def f_touch_status(port):
         t1 = touch_status.TouchSensor(port)
         return t1.getTouchStatus()
 
+def f_rotary_angle_value(port):
+        a1 = rotary_angle_value.RotaryAngleValue(port)
+        return a1.getAngle()

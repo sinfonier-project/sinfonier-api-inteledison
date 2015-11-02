@@ -50,6 +50,9 @@ class TouchStatus(web.RequestHandler):
         def get(self, param):
                 self.write(fplugins.f_touch_status(param))
 
+class RotaryAngleValue(web.RequestHandler):
+        def get(self, param):
+                self.write(fplugins.f_rotary_angle_value(param))
 
 settings = {
     "template_path": os.path.join(os.path.dirname(__file__), 
@@ -68,7 +71,8 @@ application = web.Application([
     (r'/api/light/(.*)', LightValue),
     (r'/api/switchbuzzer', SwitchBuzzer),
     (r'/api/sound/(.*)', SoundValue),
-    (r'/api/touchsensor/(.*)',TouchStatus)
+    (r'/api/touchsensor/(.*)',TouchStatus),
+    (r'/api/rotaryangle/(.*)', RotaryAngleValue)
 
 ],**settings)
  
