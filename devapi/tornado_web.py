@@ -79,5 +79,6 @@ application = web.Application([
 if __name__ == "__main__":   
     server = httpserver.HTTPServer(application)
     server.bind(8888)
-    server.start(2) 
+    print "Tornado IntelEdison API has Started"    
+    server.start(2)
     ioloop.IOLoop.instance().start()
