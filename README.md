@@ -30,8 +30,7 @@ repositories.
 
 		src/gz all http://repo.opkg.net/edison/repo/all
 		src/gz edison http://repo.opkg.net/edison/repo/edison
-		src/gz core2-32 
-http://repo.opkg.net/edison/repo/core2-32
+		src/gz core2-32 http://repo.opkg.net/edison/repo/core2-32
 
 	Save and close the file. Then update the package list.
 
@@ -40,9 +39,7 @@ http://repo.opkg.net/edison/repo/core2-32
 	PIP is now installed, however it requires setuptools to be 
 installed before PIP can install any Python packages. 
 
-		*wget 
-https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py Then run 
-python ez_setup.py --no-check-certificate
+		*wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
 
 	Once the easy setup file has been downloaded, run it.
 
@@ -60,8 +57,7 @@ packages on your Intel Edison using PIP.
 		*opkg install git
 
 		*cd /opt
-		*git clone 
-https://github.com/sinfonier-project/sinfonier-api-inteledison.git
+		*git clone https://github.com/sinfonier-project/sinfonier-api-inteledison.git
 
 	Rename the folder if you want
 
